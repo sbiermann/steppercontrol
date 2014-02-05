@@ -64,16 +64,17 @@ class Stepper:
                         GPIO.output(xpin, False)
         
                 StepCounter += 1
-                if (self.StepCounter==self.StepCount):
+                if (StepCounter==self.StepCount):
                     StepCounter = 0
                 if (StepCounter<0):
                     StepCounter = self.StepCount
         
                 time.sleep(self.WaitTime)
                 steps -= 1
+        self.reset_pins()
 
     def rotate_counterwise(self,steps):
-        StepCounter = self.StepCount
+        StepCounter = self.StepCount - 1
         while steps > 0:
                 for pin in range(0, 4):
                     xpin = self.StepPins[pin]
@@ -84,8 +85,13 @@ class Stepper:
         
                 StepCounter -= 1
                 if (StepCounter <= 0):
-                    StepCounter = self.StepCount
+                    StepCounter = self.StepCount - 1
         
                 time.sleep(self.WaitTime)
                 steps -= 1
+        self.reset_pins()
+                
+    def reset_pins(self):
+        for pin in self.StepPins:
+            GPIO.output(pin, False)
 
