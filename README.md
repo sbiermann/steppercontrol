@@ -46,7 +46,7 @@ Stepper Control Usage
     
     # initialize GPIO24,GPIO25,GPIO8,GPIO7
     stepper = StepperControl.stepper.Stepper(24,25,8,7)
-    # number of sequenzes
+    # number of steps
     steps = 165
 
     while True:

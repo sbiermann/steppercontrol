@@ -4,6 +4,21 @@ Created on 13.01.2014
 @author: Stefan
 
 based on Matt Hawkins tutorial: http://www.raspberrypi-spy.co.uk/2012/07/stepper-motor-control-in-python/
+
+Usage:
+    import StepperControl.stepper
+    import time
+    
+    # initialize GPIO24,GPIO25,GPIO8,GPIO7
+    stepper = StepperControl.stepper.Stepper(24,25,8,7)
+    # number of steps
+    steps = 165
+
+    while True:
+       stepper.rotate_clockwise(steps)
+       time.sleep(5)
+       stepper.rotate_counterwise(steps)
+
 '''
 
 import time
