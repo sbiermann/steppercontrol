@@ -11,10 +11,6 @@ import RPi.GPIO as GPIO
 
 
 class Stepper:
-    '''
-    classdocs
-    '''
-
 
     def __init__(self, pin1,pin2,pin3,pin4):
         GPIO.setmode(GPIO.BCM)
